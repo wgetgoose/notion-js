@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/wgetgoose/notion-js/issues"
   },
-  "homepage": "https://github.com/wgetgoose/notion-js#readme"
+  "homepage": "https://github.com/wgetgoose/notion-js#readme",
+  "dependencies": {
+    "@notionhq/client": "^1.0.3"
+  }
 }
