@@ -1,0 +1,19 @@
+{
+  "name": "notion-khan",
+  "version": "1.0.0",
+  "description": "Notion project to create Khan Academy daily activity",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wgetgoose/notion-js.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wgetgoose/notion-js/issues"
+  },
+  "homepage": "https://github.com/wgetgoose/notion-js#readme"
+}
