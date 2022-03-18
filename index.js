@@ -2,9 +2,11 @@ import { Client } from "@notionhq/client"
 
 const notion = new Client({ auth: process.env.NOTION_KEY })
 
-const databaseId = process.env.NOTION_DATABASE_ID
+const databaseId = "a4337fb1d13041e4ac79a6a0dd04d478";
 
-async function addItem(text) {
+const today = new Date().toISOString().slice(0,10); // this will break
+
+(async () => {
   try {
     const response = await notion.pages.create({
       parent: { database_id: databaseId },
@@ -12,19 +14,35 @@ async function addItem(text) {
         title: { 
           title:[
             {
-              "text": {
-                "content": text
+              text: {
+                "content": 'Khan Academy SAT Review'
               }
             }
           ]
+        },
+        Class: {
+            select: {
+                name: 'Misc'
+            }
+        },
+        Completion: {
+            select: {
+                name: 'Assigned'
+            }
+        },
+        'Due Date': {
+            date: {
+                start: today
+            }
+        },
+        Weight: {
+            number: 1
         }
-      },
+      }
     })
     console.log(response)
     console.log("Success! Entry added.")
   } catch (error) {
     console.error(error.body)
   }
-}
-
-addItem("Yurts in Big Sur, California")
+}) ();
