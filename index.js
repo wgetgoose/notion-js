@@ -1,12 +1,12 @@
-const { Client } = require("@notionhq/client");
+const { Client } = require ("@notionhq/client");
 
 const notion = new Client({ auth: process.env.NOTION_KEY })
 
-const databaseId = "a4337fb1d13041e4ac79a6a0dd04d478";
+const databaseId = process.env.NOTION_DATABASE_ID;
 
 const today = new Date().toISOString().slice(0,10); // this will break
 
-exports.handler = async function() {
+(async () => {
   try {
     const response = await notion.pages.create({
       parent: { database_id: databaseId },
@@ -45,4 +45,4 @@ exports.handler = async function() {
   } catch (error) {
     console.error(error.body)
   }
-}
+}) ();
