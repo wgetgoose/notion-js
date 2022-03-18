@@ -6,7 +6,7 @@ const databaseId = "a4337fb1d13041e4ac79a6a0dd04d478";
 
 const today = new Date().toISOString().slice(0,10); // this will break
 
-(async () => {
+exports.handler = async function() {
   try {
     const response = await notion.pages.create({
       parent: { database_id: databaseId },
@@ -45,4 +45,4 @@ const today = new Date().toISOString().slice(0,10); // this will break
   } catch (error) {
     console.error(error.body)
   }
-}) ();
+}
